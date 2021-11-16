@@ -137,65 +137,6 @@ def geraSaida(nome,Ft,Ut,Epsi,Fi,Ti):
     f.write(str(Ti))
     f.close()
     
-def calcula_jacobi(a,b,tol):
-    '''
-    Recebe 2 vetores [A]{x}=[B] 
-    Repetira ate atingir a convergencia desejada.
-    '''
-    linhas = np.shape(a)[0]
-    colunas = np.shape(a)[1]
-    x = np.zeros((linhas,1))
-    xnew = np.zeros((linhas,1))
-    max_i = 100
-    for i in range(max_i):
-        for linha in range(linhas):
-            for coluna in range(colunas):
-                if linha!=coluna:
-                    xnew[linha] +=a[linha][coluna]*x[coluna]
-            xnew[linha] = (b[linha]-xnew[linha])/a[linha][linha] 
-        print(f'x={xnew}')
-        print()
-
-        # Erro
-        err = max(abs((xnew-x)/xnew))
-
-        # Atualizar
-        x = np.copy(xnew)
-        xnew.fill(0)
-        if err<=tol:
-            print(f'CONVERGIU EM i={i} com err = {err}')
-            break
-    return x
-
-def calcula_gauss(a,b,tol):
-    linhas = np.shape(a)[0]
-    colunas = np.shape(a)[1]
-    x = np.zeros((linhas,1))
-    xnew = np.zeros((linhas,1))
-    soma = 0
-    max_i = 100
-    
-    for i in range(max_i):
-        for linha in range(linhas):
-            for coluna in range(colunas):
-                if linha!=coluna:
-                    soma +=a[linha][coluna]*x[coluna]
-            
-            x[linha] = (b[linha]-soma)/a[linha][linha] 
-            
-            #print(f'x[{linha}] = {x[linha]}= ({b[linha]}-{soma})/{a[linha][linha]}')
-        print(f'x={x}\n xnew={xnew}')
-        print()
-
-        # Erro
-        err = max(abs((x-xnew)/x))
-        soma = 0
-        if err<=tol:
-            print(f'CONVERGIU EM i={i} com err = {err}')
-            break
-        #atualiza o anterior
-        xnew = np.copy(x)
-    return x
 
 
     
