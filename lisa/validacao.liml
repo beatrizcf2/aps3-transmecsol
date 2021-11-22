@@ -171,16 +171,13 @@
       <namedselection>Unnamed(7)</namedselection>
       <namedselection>Unnamed(8)</namedselection>
       <namedselection>Unnamed(9)</namedselection>
-      <fieldvalue>displx</fieldvalue>
-      <fieldvalue>disply</fieldvalue>
-      <fieldvalue>rotz</fieldvalue>
       <fieldvalue>tensileforce</fieldvalue>
       <fieldvalue>stressptu</fieldvalue>
-      <fieldvalue>displmag</fieldvalue>
+      <elementvalues />
       <coordinates />
     </table>
     <results>
-      <stats start="2021-11-21T20:37:44.47" end="2021-11-21T20:37:45.36" duration=".89" />
+      <stats start="2021-11-19T09:29:14.38" end="2021-11-19T09:29:14.41" duration=".04" />
       <node nid="1" displx="0" disply="0" rotz="0" tensileforce="-13357.864376269" stressptu="-188975.123967498" displmag="0" />
       <node nid="2" displx="0" disply="0" rotz="0" tensileforce="-13357.864376269" stressptu="-188975.123967498" displmag="0" />
       <node nid="3" displx="2.79043961682037E-06" disply="-1.06829947190015E-05" rotz="0" tensileforce="-17238.576250846" stressptu="-243875.966416773" displmag="1.10414188137818E-05" />

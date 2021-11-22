@@ -115,22 +115,20 @@ def calcula_u_comp(u,R):
             k+=1
     return u_comp
 
-def calcula_deformacao(u,l,R,trig):
-    u_comp = calcula_u_comp(u, R)
+def calcula_deformacao(Inc,u_comp,l,R,trig):
     lista_d = np.zeros((len(l), 1))
+    
     for i in range(len(l)):
         inicio = 2*i
-        indexes = []
         stop = 0
-        for j in range(4):
-            if inicio+j >= len(u_comp):
-                indexes.append(stop)
-                stop+=1
-            else:  
-                indexes.append(inicio+j)      
-        ue = u_comp[indexes]   
+        
+        idxs = [(int(Inc[i, 0])-1)*2, (int(Inc[i, 0])-1)*2 +1, 
+                (int(Inc[i, 1])-1)*2, int(Inc[i, 1]-1)*2 +1]
+
+        ue = u_comp[idxs]   
         d = (1/l[i])*(trig[i]@ue)
         lista_d[i] = d[0]
+        
     return lista_d
 
 def calcula_tensao(E,d):
